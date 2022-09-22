@@ -1,3 +1,73 @@
+function motiple_choice (choices: string) {
+    let choise = ""
+    choice_A = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 3 . . . . . . . . 
+        . . . . . . . 3 3 . . . . . . . 
+        . . . . . . 3 . 3 3 . . . . . . 
+        . . . . . . 3 . . 3 . . . . . . 
+        . . . . . . 3 . . . 3 . . . . . 
+        . . . . . 3 . . . . 3 3 . . . . 
+        . . . . . 3 . . . 3 3 3 . . . . 
+        . . . . 3 . 3 3 3 3 . 3 3 . . . 
+        . . . . 3 . . . . . . 3 3 . . . 
+        . . . 3 3 . . . . . . . 3 3 . . 
+        . . 3 3 . . . . . . . . . 3 . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    choice_A.setPosition(78, 58)
+    game.showLongText(choices[0], DialogLayout.Bottom)
+    choice_A.destroy()
+    choice_B = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 3 3 3 3 3 3 3 . . 
+        . . . . . . . 3 3 . . . . . 3 3 
+        . . . . . . 3 . 3 3 . . . . . 3 
+        . . . . . . 3 . . 3 . . . . 3 3 
+        . . . . . . 3 . . . 3 3 3 3 . . 
+        . . . . . 3 . . . . 3 3 3 3 . . 
+        . . . . . 3 . . . 3 3 3 . 3 . . 
+        . . . . 3 . 3 3 3 3 . 3 3 . 3 . 
+        . . . . 3 . . . . . . 3 3 . 3 . 
+        . . . 3 3 . . . . . . . 3 3 3 . 
+        . . 3 3 3 3 . . . . . . 3 3 . . 
+        . . . . . . 3 3 3 3 3 3 3 . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    choice_B.setPosition(78, 58)
+    game.showLongText(choices[1], DialogLayout.Bottom)
+    choice_B.destroy()
+    choice_C = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 3 3 . . . . . . . 
+        . . . . . 3 3 . . . . . . . . . 
+        . . . . . 3 . . . . . . . . . . 
+        . . . . 3 . . . . . . . . . . . 
+        . . . . 3 . . . . . . . . . . . 
+        . . . . 3 . . . . . . . . . . . 
+        . . . . 3 3 . . . . . . . . . . 
+        . . . . . 3 3 . . . . . . . . . 
+        . . . . . . 3 3 3 . . . . . . . 
+        . . . . . . . . . 3 3 3 3 3 3 3 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    choice_C.setPosition(78, 58)
+    game.showLongText(choices[2], DialogLayout.Bottom)
+    choice_C.destroy()
+    choices = game.askForString("make a choice! (a b or c)")
+    while (!(choise == "A" || (choise == "B" || choise == "C"))) {
+        choices = game.askForString("make a choice! (a b or c)")
+    }
+}
 function gameOver (text: string) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     scene.setBackgroundImage(img`
@@ -125,6 +195,10 @@ function gameOver (text: string) {
     game.showLongText(text, DialogLayout.Bottom)
     game.over(false)
 }
+let choice_C: Sprite = null
+let choice_B: Sprite = null
+let choices: number[] = []
+let choice_A: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
